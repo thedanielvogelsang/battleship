@@ -16,6 +16,7 @@ class ReadBattleship
     elsif init_answer == "p"
       puts "BOOTING UP!"
       GameInit.new
+      
     else
       puts "ERROR: That is not a valid entry!"
     end
