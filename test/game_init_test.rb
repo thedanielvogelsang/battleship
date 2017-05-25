@@ -4,13 +4,14 @@ require "minitest/pride"
 require "./lib/game_init"
 
 class GameInitTest < Minitest::Test
-  def test_it_stores_coordinates_the_same_4_vs_5_2_unit_boat
+  def test_it_cant_input_anything_but_B1_C1_syntax
     x = GameInit.new
     y = GameInit.new
     # insert ("A1A2") as first, ("A1 A2") as second
     four = x.scoordinates
     five = y.scoordinates
-    assert_equal four, five
+    assert_nil four
+    assert_equal 1, four.length
   end
 
   def test_available_squares

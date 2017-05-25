@@ -10,7 +10,6 @@ class ShooterTest < Minitest::Test
   end
 
   def test_it_stores_boats_separately
-    skip
     person = [["A1", "A2"], ["D1", "D2", "D3"]]
     c = [["A3", "A4"], ["C1", "C2", "C3"]]
     x = Shooter.new(c, person)
@@ -49,5 +48,5 @@ class ShooterTest < Minitest::Test
   def test_computer_can_play_to_the_end
     x = Shooter.new([["arg1, arg2"], ["arg3", "arg4", "arg5"]],[["arg1, arg2"], ["arg3", "arg4", "arg5"]])
   end
-  
+
 end

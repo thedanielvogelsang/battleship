@@ -75,7 +75,7 @@ class Shooter
   def computer_fire
     fire = @comp_options.delete(@comp_options.sample)
     gets.chomp
-    puts "#{fire}, fire!"
+    puts "#{fire}, fire!!"
     comp_check_boat_and_delete(fire)
   end
 

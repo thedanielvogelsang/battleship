@@ -64,12 +64,12 @@ class GameInit
       else
         messages.invalid_overlap
         arg = gets.chomp
-        destroyer_correct_coordinates?(arg)
+        self.destroyer_correct_coordinates?(arg)
       end
     else
       messages.invalid
       arg = gets.chomp
-      destroyer_correct_coordinates?(arg)
+      self.destroyer_correct_coordinates?(arg)
     end
   end
 
@@ -83,7 +83,7 @@ class GameInit
     else
       messages.invalid_destroyer
       arg = gets.chomp
-      destroyer_correct_coordinates?(arg)
+      self.destroyer_correct_coordinates?(arg)
     end
   end
 
