@@ -10,6 +10,7 @@ class Shooter
     @comp_sub = computer_boats.shift
     @comp_dest = computer_boats.pop
     @comp_options = gameboard
+    #@p_shots = []
     @available_squares = gameboard
     @messages = Messages.new
     @board_play = Printer.new
@@ -26,7 +27,7 @@ class Shooter
       fire = gets.chomp
       if @comp_sub.include?(fire) || @comp_dest.include?(fire) && /[A-D1-4]/.match(fire) != nil
         check_boat_and_delete(fire)
-      elsif /[A-D1-4]/.match(fire) != nil && @available_squares.include?(fire) == false
+      elsif /[A-D1-4]/.match(fire) != nil && @available_squares.include?(fire) == false #&& p_shots.include?(fire)
         puts "\nYou already fired there!"
         person_fire
       elsif /[A-D1-4]/.match(fire) != nil && @available_squares.include?(fire)
@@ -46,6 +47,7 @@ class Shooter
       @comp_sub.delete(fire)
       cond = @comp_sub.empty?
       cond ?  messages.sunk_sub : messages.hit
+      #@p_shots.push(fire)
       @board_play.update("person", fire, "  H  ")
       @board_play.print_me("person")
       puts "Press ENTER"
@@ -54,6 +56,7 @@ class Shooter
       @available_squares.delete(fire)
       cond = @comp_dest.empty?
       cond ?  messages.sunk_dest : messages.hit
+      #@p_shots.push(fire)
       @board_play.update("person", fire, "  H  ")
       @board_play.print_me("person")
       puts "Press ENTER"
@@ -63,6 +66,7 @@ class Shooter
       gametime = @end_time - @start_time
       puts "Congratulations Sir! You've won the Battle! Nice shootin! You got 'em in only #{gameboard.length - @available_squares.length} shots!"
       puts "Game Run Time = #{gametime} seconds"
+      exit!
     end
   end
 

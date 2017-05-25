@@ -22,3 +22,5 @@ class ReadBattleship
     end
   end
 end
+
+ReadBattleship.new

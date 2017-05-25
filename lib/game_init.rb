@@ -32,12 +32,11 @@ class GameInit
       else
         messages.invalid
         arg = gets.chomp
-        submarine_correct_coordinates?(arg)
+        self.submarine_correct_coordinates?
       end
     else
       messages.invalid
-      arg = gets.chomp
-      submarine_correct_coordinates?(arg)
+      self.submarine_correct_coordinates?
     end
   end
 
@@ -54,8 +53,7 @@ class GameInit
           destroyer_correct_coordinates?(second_boat)
     else
         messages.invalid_sub
-        answer = gets.chomp
-        submarine_correct_coordinates?(answer)
+        self.submarine_correct_coordinates?
     end
   end
 
