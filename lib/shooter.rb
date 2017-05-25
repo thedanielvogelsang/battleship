@@ -14,7 +14,7 @@ class Shooter
     @available_squares = gameboard
     @messages = Messages.new
     @board_play = Printer.new
-    puts "Let's play some Battleship! You fire first, Admiral. (Ex: 'B3')\n>"
+    puts "\n=======\nLet's play some Battleship! You fire first, Admiral. (Ex: 'B3')\n++++++++\n"
     @start_time = Time.now
     until (@p_sub.empty? && @p_dest.empty?) || (@comp_sub.empty? && @comp_dest.empty?)
       person_fire
@@ -50,7 +50,7 @@ class Shooter
       cond = @comp_sub.empty?
       cond ?  messages.sunk_sub : messages.hit
       #@p_shots.push(fire)
-      @board_play.update("person", fire, "  H  ")
+      @board_play.update("person", fire, " *H* ")
       @board_play.print_me("person")
       puts "Press ENTER"
     elsif @comp_dest.include?(fire)
@@ -59,7 +59,7 @@ class Shooter
       cond = @comp_dest.empty?
       cond ?  messages.sunk_dest : messages.hit
       #@p_shots.push(fire)
-      @board_play.update("person", fire, "  H  ")
+      @board_play.update("person", fire, " *H* ")
       @board_play.print_me("person")
       puts "Press ENTER"
     end
@@ -84,14 +84,14 @@ class Shooter
       @p_sub.delete(fire)
       cond = @p_sub.empty?
       cond ? messages.comp_sunk_sub : messages.comp_hit_sub
-      @board_play.update("computer", fire, "  H  ")
+      @board_play.update("computer", fire, " *H* ")
       @board_play.print_me("computer")
       puts "Your turn!\n>"
     elsif @p_dest.include?(fire)
       @p_dest.delete(fire)
       cond = @p_dest.empty?
       cond ? messages.comp_sunk_dest : messages.comp_hit_dest
-      @board_play.update("computer", fire, "  H  ")
+      @board_play.update("computer", fire, " *H* ")
       @board_play.print_me("computer")
       puts "Your turn!\n>"
     else
