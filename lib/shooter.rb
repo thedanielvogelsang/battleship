@@ -23,7 +23,7 @@ class Shooter
   end
 
   def person_fire
-
+    @board_play.print_me("person")
       fire = gets.chomp
       if @comp_sub.include?(fire) || @comp_dest.include?(fire) && /[A-D1-4]/.match(fire) != nil
         check_boat_and_delete(fire)
