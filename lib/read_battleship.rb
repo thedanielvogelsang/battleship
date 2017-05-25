@@ -16,16 +16,9 @@ class ReadBattleship
     elsif init_answer == "p"
       puts "BOOTING UP!"
       GameInit.new
-      
     else
       puts "ERROR: That is not a valid entry!"
+      ReadBattleship.new
     end
   end
 end
-
-instance = ReadBattleship.new
-# frigate
-# carrier
-# remote
-# destroyer
-# cruiser

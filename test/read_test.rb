@@ -10,5 +10,3 @@ class ReaderTest < Minitest::Test
     assert_equal result, STDOUT
   end
 end
-
-#needs more tests :: make 4 total 

@@ -1,18 +1,22 @@
 module Eval
   class Person
-
+    attr_reader :person_boat_coordinates
+    def initialize(person_boats)
+      @person_boat_coordinates = person_boats
+    end
   end
+
   class Computer
-    attr_reader :boat_coordinates
+    attr_reader :comp_boat_coordinates
     def initialize
       @comp_available_squares = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4"]
-      @boat_coordinates = []
+      @comp_boat_coordinates = []
     end
 
     def place_boats
       sub_boat_placement
       dest_boat_placement
-      @boat_coordinates
+      @comp_boat_coordinates
     end
 
     def sub_boat_placement
@@ -35,7 +39,7 @@ module Eval
       @comp_available_squares.delete_if {|score|
         @sub_location.include?(score)
         }
-      @boat_coordinates.push(@sub_location)
+      @comp_boat_coordinates.push(@sub_location)
     end
 
     def dest_boat_placement
@@ -63,7 +67,7 @@ module Eval
       @comp_available_squares.delete_if {|score|
         @dest_location.include?(score)
         }
-      @boat_coordinates.push(@dest_location)
+      @comp_boat_coordinates.push(@dest_location)
     end
 
     def middle
@@ -75,6 +79,3 @@ module Eval
     end
   end
 end
-
-# instance2 = Eval::Computer.new
-# instance2.sub_boat_placement
