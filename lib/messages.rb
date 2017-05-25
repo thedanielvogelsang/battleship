@@ -1,10 +1,10 @@
 class Messages
   def invalid
-    puts "Not Valid Coordinates. Try again with this syntax: 'A1 B1'\n>"
+    puts "\nNot Valid Coordinates. Try again with this syntax: 'A1 B1'\n>"
   end
 
   def fire_invalid
-    puts "Thats not a valid coordinate, try again.\n>"
+    puts "\nThats not a valid coordinate, try again.\n>"
   end
 
   def intro_message
@@ -16,15 +16,15 @@ class Messages
   end
 
   def invalid_overlap
-    puts "Whoops! Either that was an invalid coordinate, or you already have a boat at one of those coordinates! Try again using a different location."
+    puts "\n\nWhoops! Either that was an invalid coordinate, or you already have a boat at one of those coordinates! Try again using a different location.\n\n"
   end
 
   def invalid_sub
-    puts "Invalid coordinates for a Submarine (2units), try again!"
+    puts "\nInvalid coordinates for a Submarine (2units), try again!\n\n\n"
   end
 
   def invalid_destroyer
-    puts "Invalid coordinates for a Destroyer (3-units), try again! (Hint: Make sure to not overlap your submarine)"
+    puts "\nInvalid coordinates for a Destroyer (3-units), try again! (Hint: Make sure to not overlap your submarine)\n\n"
   end
 
   def hit

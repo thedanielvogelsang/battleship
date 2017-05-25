@@ -49,4 +49,5 @@ class ShooterTest < Minitest::Test
   def test_computer_can_play_to_the_end
     x = Shooter.new([["arg1, arg2"], ["arg3", "arg4", "arg5"]],[["arg1, arg2"], ["arg3", "arg4", "arg5"]])
   end
+  
 end

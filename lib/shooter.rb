@@ -14,7 +14,7 @@ class Shooter
     @available_squares = gameboard
     @messages = Messages.new
     @board_play = Printer.new
-    puts "Let's play some Battleship! You fire first, Admiral.\n>"
+    puts "Let's play some Battleship! You fire first, Admiral. (Ex: 'B3')\n>"
     @start_time = Time.now
     until (@p_sub.empty? && @p_dest.empty?) || (@comp_sub.empty? && @comp_dest.empty?)
       person_fire
@@ -27,9 +27,9 @@ class Shooter
       fire = gets.chomp
       if @comp_sub.include?(fire) || @comp_dest.include?(fire) && /[A-D1-4]/.match(fire) != nil
         check_boat_and_delete(fire)
-      elsif /[A-D1-4]/.match(fire) != nil && @available_squares.include?(fire) == false #&& p_shots.include?(fire)
-        puts "\nYou already fired there!"
-        person_fire
+      elsif /[A-D1-4]/.match(fire) != nil && @available_squares.include?(fire) == false#&& p_shots.include?(fire)
+        puts "\nEither you already fired there, or thats invalid Sir! Am I beginning to detect intentional folly?\n"
+        self.person_fire
       elsif /[A-D1-4]/.match(fire) != nil && @available_squares.include?(fire)
         puts "\nAye! A miss sir!\n"
         @available_squares.delete(fire)
@@ -38,13 +38,15 @@ class Shooter
         puts "Press ENTER"
       else
         messages.fire_invalid
-        person_fire
+        puts %w(Ex: 'B3')
+        self.person_fire
       end
   end
 
   def check_boat_and_delete(fire)
     if @comp_sub.include?(fire)
       @comp_sub.delete(fire)
+      @available_squares.delete(fire)
       cond = @comp_sub.empty?
       cond ?  messages.sunk_sub : messages.hit
       #@p_shots.push(fire)

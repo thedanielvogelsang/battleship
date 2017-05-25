@@ -31,7 +31,6 @@ class GameInit
         sub_placement_check(@scoordinates)
       else
         messages.invalid
-        arg = gets.chomp
         self.submarine_correct_coordinates?
       end
     else
